@@ -70,13 +70,14 @@ Rails.application.configure do
     host = 'https://agile-retreat-85739.herokuapp.com/.herokuapp.com'
     config.action_mailer.default_url_options = { host: host }
     ActionMailer::Base.smtp_settings = {
-      :port           => ENV['MAILGUN_SMTP_PORT'],
-      :address        => ENV['MAILGUN_SMTP_SERVER'],
-      :user_name      => ENV['MAILGUN_SMTP_LOGIN'],
-      :password       => ENV['MAILGUN_SMTP_PASSWORD'],
-      :domain         => host,
-      :authentication => :plain,
-    }
+      :port => 587,
+       :address => 'smtp.sendgrid.net',
+       :user_name => ENV['SENDGRID_USERNAME'],
+       :password => ENV['SENDGRID_PASSWORD'],
+       :domain => host,
+       :authentication => :plain,
+       :enable_starttls_auto => true
+   }
   # Enable locale fallbacks for I18n (makes lookups for any locale fall back to
   # the I18n.default_locale when a translation cannot be found).
   config.i18n.fallbacks = true
