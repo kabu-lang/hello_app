@@ -67,10 +67,10 @@ Rails.application.configure do
 
   config.action_mailer.raise_delivery_errors = true
     config.action_mailer.delivery_method = :smtp
-    host = 'https://agile-retreat-85739.herokuapp.com/.herokuapp.com'
+    host = 'https://agile-retreat-85739.herokuapp.com'
     config.action_mailer.default_url_options = { host: host }
     ActionMailer::Base.smtp_settings = {
-      :port => 587,
+      :port => '587',
        :address => 'smtp.sendgrid.net',
        :user_name => ENV['SENDGRID_USERNAME'],
        :password => ENV['SENDGRID_PASSWORD'],
